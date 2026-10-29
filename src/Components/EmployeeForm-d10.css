@@ -1,0 +1,98 @@
+/* DAY 10 - Employee Form Styling */
+
+.employee-form-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 35px auto;
+  padding: 20px;
+  background: #bcd1eb;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.employee-form-container h2 {
+  margin: 0 0 25px;
+  text-align: center;
+  color: #243b53;
+  font-size: 25px;
+}
+
+.employee-form {
+  display: flex;
+  flex-direction:column;
+  gap: 0px;
+}
+
+.employee-form label {
+  margin-top: 2px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: start;
+  
+}
+
+.employee-form input,
+.employee-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.employee-form input:focus,
+.employee-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.employee-form button {
+  margin-top: 18px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.employee-form button:hover {
+  background: #1d4ed8;
+}
+
+.employee-form .error {
+  margin: 0 0 5px;
+  color: #dc2626;
+  font-size: 13px;
+}
+
+.employee-form .success {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #dcfce7;
+  color: #17e666;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .employee-form-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .employee-form-container h2 {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,227 @@
+
+/* DAY 12 - User Management */
+
+.crud-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 24px;
+  color: #1e293b;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.crud-container h1 {
+  margin-bottom: 8px;
+  text-align: center;
+  color: #243b53;
+}
+
+.crud-subtitle {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #64748b;
+}
+
+.crud-form,
+.crud-list-panel {
+  background: #f8fbff;
+  border: 1px solid #dfeaf7;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
+}
+
+
+/* DAY 12 - Add New User Row Layout */
+
+.crud-form {
+  max-width: 100%;
+  margin: 0 auto 30px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 12px;
+  background: #bcd1eb;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.crud-form h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.crud-form label {
+  display: none;
+}
+
+.crud-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 0;
+}
+
+@media (max-width: 500px) {
+  .crud-form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .crud-form h2 {
+    grid-column: auto;
+  }
+
+  .crud-form label {
+    display: block;
+  }
+
+  .crud-form-actions {
+    margin-top: 8px;
+  }
+}
+
+
+.crud-form button,
+.crud-card-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 7px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.crud-form button:hover,
+.crud-card-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.crud-form-actions button {
+  flex: 1;
+  background: #2563eb;
+}
+
+.crud-form-actions .cancel-button {
+  background: #64748b;
+}
+
+.crud-form button:disabled,
+.crud-card-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.crud-list-panel {
+  padding: 20px;
+}
+
+.crud-message {
+  max-width: 500px;
+  margin: 12px auto;
+  padding: 12px;
+  border-radius: 7px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.success-message {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.error-message {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.crud-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.crud-list-heading h2 {
+  margin: 0;
+}
+
+.crud-list-heading span {
+  color: #64748b;
+}
+
+.crud-user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.crud-user-card {
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  overflow-wrap: anywhere;
+}
+
+.crud-user-info h3 {
+  margin: 0 0 10px;
+  color: #2563eb;
+}
+
+.crud-user-info p {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.crud-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.crud-card-actions .edit-button {
+  background: #0f766e;
+}
+
+.crud-card-actions .delete-button {
+  background: #dc2626;
+}
+
+.crud-status {
+  padding: 20px;
+  text-align: center;
+  color: #475569;
+}
+
+.crud-note {
+  margin-top: 28px;
+  padding: 14px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .crud-container {
+    padding: 14px;
+  }
+
+  .crud-form,
+  .crud-list-panel {
+    padding: 18px;
+  }
+
+  .crud-list-heading {
+    align-items: flex-start;
+  }
+}

@@ -1,122 +1,232 @@
-// import { useState } from 'react'
-// import heroImg from './assets/hero.png'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
-// import './App.css'
 
-// function App() {
-//   const [count, setCount] = useState(0)
+import { useState } from "react";
+import EmployeeCard from "./Components/Employeecard-d6";
+import logo4 from "./Components/img/logo-4.png";
+import logo3 from "./Components/img/logo-3.png";
+import EmployeeForm from "./Components/EmployeeForm-d10";
+import "./App.css";
 
-//   return (
-//     <>
-//       <section id="center">
-//         <div className="hero">
-//           <img src={heroImg} className="base" width="170" height="179" alt="" />
-//           <img src={reactLogo} className="framework" alt="React logo" />
-//           <img src={viteLogo} className="vite" alt="Vite logo" />
-//         </div>
-//         <div>
-//           <h1>Get started</h1>
-//           <p>
-//             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-//           </p>
-//         </div>
-//         <button
-//           type="button"
-//           className="counter"
-//           onClick={() => setCount((count) => count + 1)}
-//         >
-//           Count is {count}
-//         </button>
-//       </section>
 
-//       <div className="ticks"></div>
+function App() {
+  // DAY 6 START 
+  // Existing EmployeeCard and employee details
 
-//       <section id="next-steps">
-//         <div id="docs">
-//           <svg className="icon" role="presentation" aria-hidden="true">
-//             <use href="/icons.svg#documentation-icon"></use>
-//           </svg>
-//           <h2>Documentation</h2>
-//           <p>Your questions, answered</p>
-//           <ul>
-//             <li>
-//               <a href="https://vite.dev/" target="_blank">
-//                 <img className="logo" src={viteLogo} alt="" />
-//                 Explore Vite
-//               </a>
-//             </li>
-//             <li>
-//               <a href="https://react.dev/" target="_blank">
-//                 <img className="button-icon" src={reactLogo} alt="" />
-//                 Learn more
-//               </a>
-//             </li>
-//           </ul>
-//         </div>
-//         <div id="social">
-//           <svg className="icon" role="presentation" aria-hidden="true">
-//             <use href="/icons.svg#social-icon"></use>
-//           </svg>
-//           <h2>Connect with us</h2>
-//           <p>Join the Vite community</p>
-//           <ul>
-//             <li>
-//               <a href="https://github.com/vitejs/vite" target="_blank">
-//                 <svg
-//                   className="button-icon"
-//                   role="presentation"
-//                   aria-hidden="true"
-//                 >
-//                   <use href="/icons.svg#github-icon"></use>
-//                 </svg>
-//                 GitHub
-//               </a>
-//             </li>
-//             <li>
-//               <a href="https://chat.vite.dev/" target="_blank">
-//                 <svg
-//                   className="button-icon"
-//                   role="presentation"
-//                   aria-hidden="true"
-//                 >
-//                   <use href="/icons.svg#discord-icon"></use>
-//                 </svg>
-//                 Discord
-//               </a>
-//             </li>
-//             <li>
-//               <a href="https://x.com/vite_js" target="_blank">
-//                 <svg
-//                   className="button-icon"
-//                   role="presentation"
-//                   aria-hidden="true"
-//                 >
-//                   <use href="/icons.svg#x-icon"></use>
-//                 </svg>
-//                 X.com
-//               </a>
-//             </li>
-//             <li>
-//               <a href="https://bsky.app/profile/vite.dev" target="_blank">
-//                 <svg
-//                   className="button-icon"
-//                   role="presentation"
-//                   aria-hidden="true"
-//                 >
-//                   <use href="/icons.svg#bluesky-icon"></use>
-//                 </svg>
-//                 Bluesky
-//               </a>
-//             </li>
-//           </ul>
-//         </div>
-//       </section>
 
-//       <div className="ticks"></div>
-//       <section id="spacer"></section>
-//     </>
-//   )
-// }
+  const initialEmployees = [
+    {
+      id: 1,
+      name: "Jasim",
+      role: "Frontend Developer",
+      email: "jasim@gmail.com",
+      department: "IT",
+      avatar: logo3,
+    },
+    {
+      id: 2,
+      name: "Shabeer",
+      role: "Backend Developer",
+      email: "shabeer@gmail.com",
+      department: "IT",
+      avatar: logo3,
+    },
+    {
+      id: 3,
+      name: "Jasnin",
+      role: "UI Designer",
+      email: "jasnin@gmail.com",
+      department: "Design",
+      avatar: logo4,
+    },
+    {
+      id: 4,
+      name: "mukthar",
+      role: "UI Designer",
+      email: "mukthar@gmail.com",
+      department: "Design",
+      avatar: logo3,
+    },
+    {
+      id: 5,
+      name: "fasil",
+      role: "Backend Developer",
+      email: "fasil@gmail.com",
+      department: "IT",
+      avatar: logo3,
+    },
+    {
+      id: 6,
+      name: "musthafa",
+      role: "Backend Developer",
+      email: "fasil@gmail.com",
+      department: "IT",
+      avatar: logo3,
+    },
+  ];
 
-// export default App
+  
+
+  //  DAY 7 START 
+  // Day 7: State and Events
+
+  // 1. Counter state
+  const [count, setCount] = useState(0);
+
+  // 2. Employee list state
+  const [employees, setEmployees] = useState(initialEmployees);
+
+  // 3. Form input states
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [department, setDepartment] = useState("");
+  const [search, setSearch] = useState("");
+
+  // 4. Add Employee event
+  function addEmployee() {
+    if (!name.trim() || !role.trim()) {
+      alert("Please enter employee name and role");
+      return;
+    }
+
+    const newEmployee = {
+      id: Date.now(),
+      name: name.trim(),
+      role: role.trim(),
+      email: email.trim() || "Not provided",
+      department: department.trim() || "Not provided",
+      avatar: logo3,
+    };
+
+    // Functional state update
+    setEmployees((previous) => [...previous, newEmployee]);
+
+    // Clear form inputs
+    setName("");
+    setRole("");
+    setEmail("");
+    setDepartment("");
+  }
+
+  // 5. Remove Employee event
+  function removeEmployee(id) {
+    setEmployees((previous) =>
+      previous.filter((employee) => employee.id !== id)
+    );
+  }
+//day-8//
+  const filteredEmployees = employees.filter((employee) =>
+    !search.trim() ||
+    [employee.name, employee.role, employee.email, employee.department].some(
+      (value) => value.toLowerCase().includes(search.trim().toLowerCase())
+    )
+  );
+
+  return (
+    <div className="app">
+      <section>
+        
+
+        <h2>Counter: {count}</h2>
+
+        <button onClick={() => setCount((prev) => prev + 1)}>
+          Increase
+        </button>
+
+        <button onClick={() => setCount((prev) => prev - 1)}>
+          Decrease
+        </button>
+
+        <button onClick={() => setCount(0)}>
+          Reset
+        </button>
+      </section>
+
+      <section>
+        
+        <div className="employee-controls">
+          <input
+            placeholder="Employee name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+
+          <input
+            placeholder="Employee role"
+            value={role}
+            onChange={(event) => setRole(event.target.value)}
+          />
+
+          <input
+            placeholder="Employee email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+
+          <input
+            placeholder="Department"
+            value={department}
+            onChange={(event) => setDepartment(event.target.value)}
+          />
+
+          <button className="add-button" onClick={addEmployee}>
+            Add Employee
+          </button>
+        </div>
+{/* search//day-8 */}
+        <div className="employee-search">
+          <input
+            type="search"
+            placeholder="Search name, role, email or department"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
+        </div>
+      </section>
+
+      {/* DAY 6 CARD + DAY 7 LIST */}
+      <section>
+        
+
+        <div className="employee-list">
+          {filteredEmployees.map((employee) => (
+            <div key={employee.id}>
+              {/* Reusing the original Day 6 EmployeeCard */}
+              <EmployeeCard
+                name={employee.name}
+                role={employee.role}
+                email={employee.email}
+                department={employee.department}
+                avatar={employee.avatar}
+              />
+
+              {/* Day 7: Remove Employee */}
+              <button
+                className="remove-button"
+                onClick={() => removeEmployee(employee.id)} >
+                 Remove
+              </button>
+          </div>
+          ))}
+        </div>
+
+        {filteredEmployees.length === 0 && (
+          <p>
+            {employees.length === 0
+              ? "No employees available."
+              : "No employees match your search."}
+          </p>
+        )}
+      </section>
+
+       {/* DAY 10 START */}
+      <section>
+        <EmployeeForm />
+      </section>
+      {/* DAY 10 END */}
+      
+     
+    </div>
+  );
+}
+
+export default App;

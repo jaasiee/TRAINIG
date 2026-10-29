@@ -1,6 +1,6 @@
 /* DAY 10 - Employee Form Styling */
 
-.employee-form-container {
+ .employee-form-container {
   max-width: 400px;
   width: 100%;
   margin: 35px auto;
@@ -95,4 +95,4 @@
   .employee-form-container h2 {
     font-size: 22px;
   }
-}
+} 

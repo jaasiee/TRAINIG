@@ -1,10 +1,13 @@
 
 import { useState } from "react";
+import "./App.css";
 import EmployeeCard from "./Components/Employeecard-d6";
 import logo4 from "./Components/img/logo-4.png";
 import logo3 from "./Components/img/logo-3.png";
 import EmployeeForm from "./Components/EmployeeForm-d10";
-import "./App.css";
+
+import ApiDay11 from "./Components/Api-day11";
+import UserManagement from "./Components/User-day12";
 
 
 function App() {
@@ -223,6 +226,18 @@ function App() {
         <EmployeeForm />
       </section>
       {/* DAY 10 END */}
+
+      {/* DAY 11 START */}
+       <section>
+         <ApiDay11 />
+       </section>
+      {/* DAY 11 END */}
+
+      {/* DAY 12 START - CRUD Workflows */}
+        <section>
+        <UserManagement />
+       </section>
+      {/* DAY 12 END */}
       
      
     </div>
